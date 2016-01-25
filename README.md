@@ -101,5 +101,5 @@ jsonLogic(false, i_wasnt_even_supposed_to_be_here);
 If that doesn't suit you, and you want to manage updates yourself, the entire library is self-contained in `JsonLogic.pm` and you can download it straight into your project as you see fit.
 
 ```bash
-curl -O https://raw.githubusercontent.com/jwadhams/json-logic-perl/master/JsonLogic.pm
+curl -O https://raw.githubusercontent.com/nbogdanemil/json-logic-perl/master/src/NBogdanEmil/JsonLogic.pm
 ```
