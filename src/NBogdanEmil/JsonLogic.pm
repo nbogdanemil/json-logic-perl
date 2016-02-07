@@ -61,39 +61,39 @@ sub apply($$)
 		},
 		'>' => sub { 
 			my ($a, $b) = @_;
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return 0 if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return 0 if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return 1 if($a > $b);
 			return 0;
 		},
 		'>=' => sub { 
 			my ($a, $b) = @_; 
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return 0 if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return 0 if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return 1 if($a >= $b); 
 			return 0;
 		},
 		'<' => sub { 
 			my ($a, $b, $c) = @_;
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return 0 if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return 0 if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			if(!defined($c)) {
 				return 1 if($a < $b);
 				return 0;
 			}
-			return 0 if(!defined($c) || $c !~ m/[0-9]+/);
+			return 0 if(!defined($c) || $c !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return 1 if(($a < $b) and ($b < $c));
 			return 0;
 		},
 		'<=' => sub { 
 			my ($a, $b, $c) = @_;
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return 0 if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return 0 if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			if(!defined($c)) {
 				return 1 if($a <= $b);
 				return 0;
 			}
-			return 0 if(!defined($c) || $c !~ m/[0-9]+/);
+			return 0 if(!defined($c) || $c !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return 1 if(($a <= $b) and ($b <= $c));
 			return 0;
 		},
@@ -161,23 +161,23 @@ sub apply($$)
 			return min(@_);
 		},
 		'+' => sub {
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return 0 if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return 0 if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return int($a + $b);
 		},
 		'-' => sub {
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return -$a if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return -$a if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return int($a - $b);
 		},
 		'/' => sub {
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return 0 if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return 0 if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return int($a / $b);
 		},
 		'*' => sub {
-			return 0 if(!defined($a) || $a !~ m/[0-9]+/);
-			return 0 if(!defined($b) || $b !~ m/[0-9]+/);
+			return 0 if(!defined($a) || $a !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
+			return 0 if(!defined($b) || $b !~ m/^(0|[+|-]?[1-9]+[0-9]*)$/);
 			return int($a * $b);
 		},
 		'=~' => sub {
